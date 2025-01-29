@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= meta.description %>">
+  <title><%= meta.title %></title>
+  <!-- OGP -->
+  <meta property="og:title" content="<%= meta.title %>">
+  <meta property="og:description" content="<%= meta.description %>">
+  <meta property="og:type" content="<%= meta.type %>">
+  <meta property="og:url" content="<%= meta.ogUrl %>">
+  <meta property="og:image" content="<%= meta.ogImage %>">
+  <!-- GoogleFonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <!-- favicon -->
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <header class="l-header">
+    <div class="l-header__wrapper">
+      <h1 class="l-header__logo">
+        <a href="#">
+          <div class="l-pc-only"><img width="381" height="66" src="../img/logo.png"
+              alt="フィットネスクラブのWEBサイトののロゴ"></div>
+          <div class="l-sp-only"><img src="../img/logo-sp.png"
+              alt="フィットネスクラブのスマホ画面用WEBサイトのロゴ"></div>
+        </a>
+      </h1>
+      <div class="l-header__info">
+        <div class="l-header__search-wrapper l-pc-only">
+          <div class="l-header__search-box">
+            <span id="search-icon" class="l-header__search-icon"><img src="../img/serch-icon.png" alt="検索アイコン"></span>
+            <input class="l-header__search-input">
+            <button type="submit" class="l-header__search-btn">検索</button>
+          </div>
+        </div>
+        <div class="l-header__account">
+          <a href="#">
+            <figure class="l-header__account-image">
+              <img src="../img/account-icon.png" alt="会員登録ページへの案内を意味するアイコン">
+              <figcaption class="l-header__account-caption">
+                会員サービス
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+      </div>
+    </div>
+    <nav id="js-nav" class="l-header__nav">
+      <div class="l-pc-only">
+        <ul class="l-header__nav-list">
+          <% nav.forEach(item => { %>
+            <li class="l-header__nav-item">
+              <a class="l-header__nav-link" href="#"><%= item.title %></a>
+              <% if(item.subItems){ %>
+                <ul class="l-header__nav-inner-list">
+                  <% item.subItems.forEach(subItem => { %>
+                    <li class="l-header__nav-inner-item">
+                      <a href="" class="l-header__nav-inner-link"><%= subItem.title %></a>
+                    </li>
+                  <% }) %>
+                </ul>
+              <% } %>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div class="l-sp-only">
+        <ul class="l-header__nav-sp-list">
+          <% nav.forEach(item => { %>
+            <li class="l-header__nav-sp-item">
+              <div class="l-header__nav-inner-link-wrapper <%= item.subItems ? 'has-sub-items' : '' %>">
+                <a class="l-header__nav-sp-link" href="#"><%= item.title %></a>
+                <% if(item.subItems){ %>
+                  <span class="sub-item-icon"></span>
+                <% } %>
+              </div>
+              <% if(item.subItems){ %>
+                <ul class="l-header__nav-sp-inner-list">
+                  <% item.subItems.forEach(subItem => { %>
+                    <li class="l-header__nav-sp-inner-item">
+                      <a href="" class="l-header__nav-sp-inner-link"><%= subItem.title %></a>
+                    </li>
+                  <% }) %>
+                </ul>
+              <% } %>
+            </li>
+          <% }) %>
+        </ul>
+
+      </div>
+    </nav>
+    <button type="button" id="js-menu-btn" class="c-menu-btn l-sp-only">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+

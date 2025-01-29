@@ -1,0 +1,54 @@
+@use"../foundation/_mixin.scss" as *;
+
+.l-footer{
+    position: relative;
+    background-image: url(../img/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: px-clamp(358,408,375,1360);
+    box-sizing: border-box;
+ &__wrapper{
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include responsive("phone"){
+         flex-direction: column;
+        }
+    }
+  &__footer-info{
+    margin-top: 1rem;
+  }
+
+ &__nav{
+  padding-top: px-to-rem(54px);
+ }
+ &__nav-list{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   @include responsive("phone"){
+      flex-direction: column;
+      align-items: flex-start; /* 縦方向上揃え */
+      justify-content: flex-start;
+      text-align: left;
+   }
+ }
+ &__nav-item:not(:first-of-type){
+   margin-left: 2rem;
+  @include responsive("phone"){
+   margin: .5rem 0 0 0;
+  }
+ }
+ &__nav-link{
+  font-size: px-clamp(14,16,375,1360);
+ }
+ &__copy{
+    position: absolute;
+    left: 50%;
+    bottom: px-to-rem(16px);
+    transform: translateX(-50%)
+    ;
+ }
+}

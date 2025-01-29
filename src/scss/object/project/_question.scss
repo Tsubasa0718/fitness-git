@@ -1,0 +1,86 @@
+@use "../../foundation/_mixin.scss" as *;
+
+.p-accordion {
+  margin-top: px-to-rem(64px);
+
+  &__item {
+    border-bottom: 1px solid #B7B7B7;
+  }
+  &__item:not(:first-child) {
+    margin-top: 1rem;
+  }
+  &__btn {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    font-size: px-clamp(14,16,375,1360);
+    padding: 0 1rem 1rem 0;
+    align-items: flex-start;
+    white-space: nowrap;
+  }
+
+  &__plus-icon {
+    position: absolute;
+    top: 40%;
+    right: .5rem; /* 右端に配置 */
+    transform: translateY(-40%);
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: .7em; /* アイコンの幅を広く設定 */
+    height: 0.07em; /* アイコンの高さを広げる */
+    background: currentColor;
+    border-radius: 0.07em; /* アイコンの丸みを少し増やす */
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      border-radius: inherit;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    &.active{
+      &::before{
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+    p{
+      font-size: px-clamp(12,16,375,1360);
+      padding-bottom: 1rem;
+    }
+  }
+
+ &__question{
+  color: var(--accent-color);
+  margin-right: px-to-rem(24px);
+  font-size: px-clamp(16,20,375,1360);
+  font-weight: bold;
+  @include responsive("phone"){
+    margin-right: 1rem;
+  }
+ }
+
+ &__answer {
+    color: var(--main-color);
+    margin-right: px-to-rem(24px);
+    font-size: px-clamp(16,20,375,1360);
+    font-weight: bold;
+    @include responsive("phone"){
+      margin-right: 1rem;
+    }
+}
+
+}

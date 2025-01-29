@@ -1,0 +1,61 @@
+@use "../../foundation/_mixin.scss" as *;
+
+.p-course {
+  position: relative;
+  z-index: 3;
+}
+
+.swiper-container {
+  position: relative;
+  margin-top: px-clamp(56, 72, 375, 1360);
+  width: 100%; /* コンテナ幅を100% */
+}
+
+.swiper {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center; /* 中央揃え */
+}
+
+.swiper-slide img {
+  max-width: 100%; /* 画像がコンテナ内で縮小 */
+  height: auto; /* アスペクト比を維持 */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent; /* 背景色を透明にする */
+  border: none; /* 枠線を削除 */
+  border-radius: 50%;
+  cursor: pointer;
+  width: px-clamp(30, 90, 375, 1360); /* ボタンの幅 */
+  height: px-clamp(30, 90, 375, 1360); /* ボタンの高さ */
+
+  &::after {
+    content: ''; /* 擬似要素の内容を空にする */
+    display: none;
+  }
+}
+
+.swiper-button-next {
+  background-image: url(/src/img/slide-btn-next.png);
+  background-size: contain; /* アイコンのサイズを調整 */
+  background-repeat: no-repeat;
+  background-position: center; /* アイコンを中央に配置 */
+}
+
+.swiper-button-prev {
+  background-image: url(/src/img/slide-btn-prev.png);
+  background-size: contain; /* アイコンのサイズを調整 */
+  background-repeat: no-repeat;
+  background-position: center; /* アイコンを中央に配置 */
+}

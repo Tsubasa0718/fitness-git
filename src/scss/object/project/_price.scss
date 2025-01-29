@@ -1,0 +1,105 @@
+@use "../../foundation/_mixin.scss" as *;
+
+.p-price {
+  &__tab-content {
+    display: none;
+    margin-top: px-clamp(64, 81, 375, 1360);
+  }
+
+  &__tab-content.active {
+    display: block;
+  }
+
+  // pc
+  &__table {
+    max-width: px-to-rem(1009px);
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+  }
+
+  &__table-th,
+  &__table-td {
+    font-size: px-to-rem(20px);
+    align-items: center;
+    border: 1px solid #000;
+    text-align: center;
+    padding: px-to-rem(24px) px-to-rem(32px);
+    font-weight: bold;
+  }
+
+  &__table-th:nth-child(2) {
+    background-color: var(--main-color);
+    color: var(--base-color);
+  }
+
+  &__table-th:nth-child(3) {
+    background-color: var(--accent-color);
+    color: var(--base-color);
+  }
+
+  &__table-td:nth-child(2) {
+    color: var(--main-color);
+  }
+
+  &__table-td:nth-child(3) {
+    color: var(--accent-color);
+  }
+
+  // sp
+  &__table-sp {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #000;
+  }
+
+  &__table-sp-th,
+  &__table-sp-td {
+    font-size: px-to-rem(14px);
+    width: 30%;
+    padding: px-to-rem(24px) px-to-rem(10px);
+    border: 1px solid #000;
+    text-align: center;
+  }
+
+  &__content {
+    display: block;
+    max-height: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding-bottom 0.3s ease-out;
+  }
+
+  &__content.open {
+    max-height: 1000px;
+    padding-bottom: 1rem;
+  }
+
+  &__price-cell {
+    background-color: var(--main-color);
+    color: var(--base-color);
+  }
+
+  &__benefit-cell {
+    background-color: var(--accent-color);
+    color: var(--base-color);
+  }
+
+  // data-label属性に対するスタイル
+
+  &__table-sp-td[data-label="料金"] ~ &__table-sp-td[data-label="単回"],
+  &__table-sp-td[data-label="料金"] ~ &__table-sp-td[data-label="月額"],
+  &__table-sp-td[data-label="料金"] ~ &__table-sp-td[data-label="年間"] {
+    color: var(--main-color);
+    font-weight: bold;
+  }
+
+
+
+  &__table-sp-td[data-label="特典"] ~ &__table-sp-td[data-label="月額"],
+  &__table-sp-td[data-label="特典"] ~ &__table-sp-td[data-label="年間"] {
+    color:var(--accent-color);
+    font-weight: bold;
+  }
+}

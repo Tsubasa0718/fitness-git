@@ -1,0 +1,93 @@
+<section class="p-contact">
+    <h2 class="c-section-title">お問い合わせ</h2>
+    <div class="l-container">
+        <div class="p-contact__form-body">
+            <form class="p-contact__form">
+
+                <!-- 名前 -->
+                <fieldset class="p-contact__form-item">
+                    <label class="p-contact__form-body-label" for="name">
+                        お名前
+                        <span class="p-contact__form-required">必須</span>
+                    </label>
+                    <input class="p-contact__form-input" type="text" id="name" name="name" aria-required="true" required>
+                </fieldset>
+
+                <!-- メールアドレス -->
+                <fieldset class="p-contact__form-item">
+                    <label class="p-contact__form-body-label" for="email">
+                        メールアドレス
+                        <span class="p-contact__form-required">必須</span>
+                    </label>
+                    <input class="p-contact__form-input" type="email" id="email" name="email" aria-required="true" required>
+                </fieldset>
+
+                <!-- 電話番号 -->
+                <fieldset class="p-contact__form-item">
+                    <label class="p-contact__form-body-label" for="tel">
+                        電話番号
+                        <span class="p-contact__form-required">必須</span>
+                    </label>
+                    <input class="p-contact__form-input" type="text" id="tel" name="tel" aria-required="true" required>
+                </fieldset>
+
+                <!-- 会員種別 -->
+                <fieldset class="p-contact__form-item">
+                    <label class="p-contact__form-body-label">会員種別</label>
+                    <div class="p-contact__form-label-wrapper">
+                        <label for="type1">
+                            <input class="p-contact__form-radio" type="radio" name="membership" id="type1" value="type1"> 会員の方
+                        </label>
+                        <label for="type2">
+                            <input class="p-contact__form-radio" type="radio" name="membership" id="type2" value="type2"> 一般の方
+                        </label>
+                    </div>
+                </fieldset>
+
+
+                <!-- 住所(郵便番号) -->
+                <fieldset class="p-contact__form-item">
+                    <label class="p-contact__form-body-label" for="postal_code">
+                        住所(郵便番号)
+                    </label>
+                    <div class="p-contact__form-input-wrapper">
+                    〒
+                    <input class="p-contact__form-input--postal" type="text" id="postal_code" name="postal_code" aria-required="true">
+                     -
+                    <input class="p-contact__form-input--postal" type="text" aria-required="true">
+                   </div>
+                </fieldset>
+
+                <!-- 住所(都道府県) -->
+                <fieldset class="p-contact__form-item">
+                    <label class="p-contact__form-body-label" for="prefecture">
+                        住所(都道府県)
+                    </label>
+                    <select class="p-contact__form-select" name="prefecture" id="prefecture">
+                        <option value="">選択してください</option>
+                    </select>
+                </fieldset>
+
+                <!-- 住所(番地丁目) -->
+                <fieldset class="p-contact__form-item">
+                    <label class="p-contact__form-body-label" for="street_address">
+                        住所(番地丁目)
+                    </label>
+                    <input class="p-contact__form-input" type="text" id="street_address" name="street_address" aria-required="true">
+                </fieldset>
+
+                <!-- お問い合わせ内容 -->
+                <fieldset class="p-contact__form-item">
+                    <label class="p-contact__form-textarea-label" for="inquiry_details">
+                        お問い合わせ内容
+                    </label>
+                    <textarea class="p-contact__form-textarea" name="inquiry_details" id="inquiry_details"></textarea>
+                </fieldset>
+             </form>
+              <div class="p-contact__form-btn">
+                <button id="js-form-btn" type="submit" class="c-btn--submit">送信する</button>
+            </div>
+        </div>
+    </div>
+    <div class="c-toast" id="js-toast">送信しました。</div>
+  </section>

@@ -1,0 +1,91 @@
+<section class="p-price">
+    <h2 class="c-section-title">料金プラン</h2>
+    <div class="l-container">
+
+        <div class="l-pc-only">
+            <div class="c-tab-wrapper">
+                <button type="button" class="c-tab-btn active" data-tab="Tab1">ヨガコース</button>
+                <button type="button" class="c-tab-btn" data-tab="Tab2">ボクササイズコース</button>
+                <button type="button" class="c-tab-btn" data-tab="Tab3">フィットネスランコース</button>
+            </div>
+        </div>
+
+        <div class="l-sp-only">
+            <div class="c-tab-wrapper">
+                <button type="button" class="c-tab-btn--sp white" data-tab="Tab-sp1">
+                    <img src="../img/yoga-icon.png" alt="スマホ用のタブボタンのアイコン(ヨガコース)">
+                </button>
+                <button type="button" class="c-tab-btn--sp orange" data-tab="Tab-sp2">
+                    <img src="../img/boxing.png" alt="スマホ用のタブボタンのアイコン(ボクササイズコース)">
+                </button>
+                <button type="button" class="c-tab-btn--sp green" data-tab="Tab-sp3">
+                    <img src="../img/runicon.png" alt="スマホ用のタブボタンのアイコン(フィットネスランコース)">
+                </button>
+            </div>
+        </div>
+
+
+        <div class="p-price__tab-content-wrapper l-pc-only">
+            <% course.forEach((item, index) => { %>
+                <div id="Tab<%= index + 1 %>" class="p-price__tab-content <%= index === 0 ? 'active' : '' %>">
+                    <table class="p-price__table">
+                        <thead>
+                            <tr class="p-price__table-tr">
+                                <% item.table.pcHeaders.forEach(header => { %>
+                                    <th class="p-price__table-th"><%= header %></th>
+                                <% }); %>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% item.table.pcRows.forEach(row => { %>
+                                <tr class="p-price__table-tr">
+                                    <td class="p-price__table-td" data-label="プラン"><%= row.plan %></td>
+                                    <td class="p-price__table-td " data-label="料金"><%= row.place %></td>
+                                    <td class="p-price__table-td" data-label="特典"><%- row.benefits %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            <% }) %>
+        </div>
+
+
+        <div class="p-price__tab-content-wrapper l-sp-only">
+            <% course.forEach((item, index) => { %>
+                <div id="Tab-sp<%= index + 1 %>" class="p-price__tab-content">
+                    <table class="p-price__table-sp">
+                        <thead>
+                            <tr class="p-price__table-sp-tr">
+                                <% item.table.spHeaders.forEach(header => { %>
+                                    <th class="p-price__table-sp-th"><%= header %></th>
+                                <% }); %>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% item.table.spRows.forEach(row => { %>
+                                <tr class="p-price__table-sp-tr">
+                                    <% if (item.name === 'ボクササイズコース' && row.plan === '料金') { %>
+                                        <td class="p-price__table-sp-td" data-label="<%= row.plan %>"><%= row.plan %></td>
+                                        <td class="p-price__table-sp-td" data-label="単回"><%= row.single %></td>
+                                        <td class="p-price__table-sp-td" data-label="月額"><%= row.month %></td>
+                                        <td class="p-price__table-sp-td" data-label="年間"><%= row.year %></td>
+                                    <% } else if (item.name === 'ボクササイズコース' && row.plan === '特典') { %>
+                                        <td class="p-price__table-sp-td" data-label="<%= row.plan %>"><%= row.plan %></td>
+                                        <td class="p-price__table-sp-td" data-label="単回"><%= row.single %></td>
+                                        <td class="p-price__table-sp-td" data-label="月額"><%- row.month %></td>
+                                        <td class="p-price__table-sp-td" data-label="年間"><%- row.year %></td>
+                                    <% } else { %>
+                                        <td class="p-price__table-sp-td" data-label="<%= row.plan %>"><%= row.plan %></td>
+                                        <td class="p-price__table-sp-td" data-label="月額"><%- row.month %></td>
+                                        <td class="p-price__table-sp-td" data-label="年間"><%- row.year %></td>
+                                    <% } %>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    </section>

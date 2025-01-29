@@ -1,0 +1,252 @@
+@use"../foundation/_mixin.scss" as *;
+
+.l-header{
+    position: relative;
+    @include responsive("phone"){
+      height: px-to-rem(66px);
+    }
+    &__wrapper{
+        padding: px-clamp(16,32,375,1360) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       }
+
+    &__logo{
+     margin-left: px-to-rem(48px);
+     @include responsive('phone'){
+     margin-left: 0;
+     position: absolute;
+     top: 50%;
+     left: 60%;
+     transform: translate(-60%, -50%);
+     }
+    }
+    &__info{
+     display: flex;
+     align-items: center;
+    }
+
+    &__search-wrapper{
+     overflow: hidden;
+     margin-right: 2rem;
+    @include responsive('phone'){
+        margin-right: 0;
+     }
+    }
+    &__search-box{
+      transform: translateX(190px);
+      transition: transform .3s;
+      &.active{
+        transform: translateX(0px);
+      }
+    }
+    &__search-input{
+     width: px-to-rem(130px);
+     border-bottom: 1px solid #000;
+    }
+    &__search-btn{
+      color: var(--base-color);
+      background-color: #000;
+      font-size: px-to-rem(12px);
+      padding: px-to-rem(5px) px-to-rem(12px);
+    }
+    &__search-icon{
+        cursor: pointer;
+        margin-right: .5rem;
+    }
+    &__account{
+     padding: 1rem;
+     @include responsive("phone"){
+     padding: 0;
+     position: absolute;
+     top: 50%;
+     right: 10%;
+     transform: translate(30%, -50%);
+
+     }
+
+    }
+    &__account-image{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      img{
+        margin: 0 auto;
+      }
+    }
+    &__account-caption{
+      white-space: nowrap;
+      font-size: px-clamp(10,12,375,1360);
+      font-weight: 500;
+      margin-top: px-clamp(6,16,375,1360);
+    }
+
+  // nav
+    &__nav{
+        padding:  px-to-rem(24px) 0;
+        border-top: 1px solid #000;
+        @include responsive('phone'){
+          visibility: hidden;
+          position: fixed;
+          top: px-to-rem(40px);
+          left: 0;
+          z-index: 10;
+          width: 100%;
+          height: 100vh;
+          border: none;
+          opacity: 0;
+          transition: .3s;
+         }
+        &.active{
+          opacity: 1;
+          visibility: visible;
+        }
+    }
+
+    &__nav-list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+       &__nav-item{
+        position: relative;
+        text-align: center;
+        flex: 1 1 auto;
+       }
+
+       &__nav-item:nth-child(3),
+       &__nav-item:nth-child(6){
+        position: relative;
+        .l-header__nav-link::after{
+          position: absolute;
+          top: 60%;
+          right: -1.5rem;
+          transform: translateY(-60%);
+          content: '';
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-right: 4px solid transparent;
+          border-left: 4px solid transparent;
+          border-top: 7px solid #555555;
+          border-bottom: 0;
+          transition: .3s;
+        }
+        .l-header__nav-link:hover::after{
+          border-top-color: var(--main-color);
+        }
+       }
+
+       &__nav-link{
+        cursor: pointer;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--main-color);
+            bottom: -3px;
+            transform: scale(0, 1);
+            transform-origin: left top;
+            transition: transform .3s;
+        }
+        &:hover::before{
+            transform: scale(1,1);
+        }
+       }
+
+       &__nav-inner-list {
+        visibility: hidden;
+        white-space: nowrap;
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: left;
+        padding: px-to-rem(20px);
+        background-color: var(--base-color);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        transition: .3s;
+       }
+
+      &__nav-item:hover > .l-header__nav-inner-list{
+        visibility: visible;
+        opacity: 1;
+      }
+
+ // SP
+   &__nav-sp-list{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--base-color);
+    border: 1px solid #000;
+    }
+  &__nav-sp-item{
+    border-bottom: 1px solid #000;
+  }
+  &__nav-sp-link{
+    display: inline-block;
+    padding: .5rem 0 .5rem .5rem;
+  }
+
+  &__nav-sp-inner-list{
+    background-color: rgba(248, 222, 183, 1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    }
+  &__nav-sp-inner-link{
+    display: inline-block;
+    &:nth-child(1){
+    padding: .5rem 0 .5rem .5rem;
+    }
+  }
+
+  // icon
+  .has-sub-items{
+    position: relative;
+    width: 100%;
+    text-align: left;
+    padding-right: 2rem; /* プラスアイコンのスペース確保 */
+  }
+  .sub-item-icon{
+    position: absolute;
+    top: 50%;
+    right: .5rem;
+    transform: translateY(-50%);
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: .7em; /* アイコンの幅を広く設定 */
+    height: 0.07em; /* アイコンの高さを広げる */
+    background: currentColor;
+    border-radius: 0.07em; /* アイコンの丸みを少し増やす */
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      border-radius: inherit;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    &.active{
+      &::before{
+        display: none;
+      }
+    }
+  }
+}

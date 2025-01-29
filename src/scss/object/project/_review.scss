@@ -1,0 +1,40 @@
+@use"../../foundation/_mixin.scss" as *;
+
+.p-review{
+  position: relative;
+  z-index: 3;
+  #carousel{
+    .swiper-button-prev,
+    .swiper-button-next{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent; /* 背景色を透明にする */
+      border: none; /* 枠線を削除 */
+      border-radius: 50%;
+      cursor: pointer;
+      width: px-clamp(30,90,375,1360); /* ボタンの幅 */
+      height: px-clamp(30,90,375,1360); /* ボタンの高さ */
+
+      &::after {
+        content: ''; /* 擬似要素の内容を空にする */
+        display: none; /* 擬似要素を非表示にする */
+      }
+    }
+    .swiper-button-next{
+        background-image: url(/src/img/carousel-btn--next.png);
+        background-size: contain; /* アイコンのサイズを調整 */
+        background-repeat: no-repeat; /* アイコンの繰り返しを無効にする */
+        background-position: center; /* アイコンを中央に配置 */
+
+      }
+      .swiper-button-prev{
+        background-image: url(/src/img/carousel-btn--prev.png);
+        background-size: contain; /* アイコンのサイズを調整 */
+        background-repeat: no-repeat; /* アイコンの繰り返しを無効にする */
+        background-position: center; /* アイコンを中央に配置 */
+
+      }
+
+}
+}

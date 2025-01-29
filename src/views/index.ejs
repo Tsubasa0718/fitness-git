@@ -1,0 +1,119 @@
+<%# 配列データを定義 %>
+<%
+// metaデータ関数
+const getMetaData = () => ({
+   title: '健康＆フィットネスクラブ',
+   description: '「健康＆フィットネス」は、会員一人ひとりに合わせたプログラムと専門家によるサポートで、心身ともに輝くライフスタイルを提供します。最新設備と活気あふれる仲間とともに、無理なく続けられる環境でフィットネスを楽しめます。ぜひ、この機会に「健康＆フィットネス」で美しいカラダと華やかな毎日を手に入れてみてください。',
+   type: 'website',
+   ogUrl: 'https://fitness-club.netlify.app/',
+   ogImage: 'https://fitness-club.netlify.app/img/OGP.png',
+});
+
+// navデータ関数
+const getNavigationData = () => ([
+ {
+   title: 'ホーム',
+   link: ""
+ },
+ {
+   title: 'コース紹介',
+   link: ""
+ },
+ {
+   title: '料金プラン',
+   link: "",
+   subItems: [
+     { title: 'お支払方法', link: "" },
+     { title: '各種クーポンの案内', link: "" }
+   ]
+ },
+ {
+   title: 'レビュー',
+   link: ""
+ },
+ {
+   title: 'Q&A',
+   link: ""
+ },
+ {
+   title: 'お問い合わせ',
+   link: "",
+   subItems: [
+     { title: '入会ページ', link: "" },
+     { title: '資料請求', link: "" }
+   ]
+ }
+]);
+
+// courseデータ関数
+const getCourseData = () => ([
+  {
+    name: 'ヨガコース',
+    table: {
+      pcHeaders: ['プラン', '料金', '特典'],
+      spHeaders: ['プラン', '月額', '年間'],
+      pcRows: [
+        { plan: '月額', place: '¥6,980', benefits: '無制限クラス受講可<br>オンラインクラス視聴可' },
+        { plan: '年間', place: '¥69,800', benefits: '月額プランと同じ特典<br>1ヶ月分無料' },
+      ],
+      spRows: [
+        { plan: '料金', month: '¥6,980', year: '¥69,800' },
+        { plan: '特典', month: '無制限クラス受講可<br>オンラインクラス視聴可', year: '月額プランと同じ特典<br>1ヶ月分無料' },
+      ]
+    }
+  },
+  {
+    name: 'ボクササイズコース',
+    table: {
+      pcHeaders: ['プラン', '料金', '特典'],
+      spHeaders: ['プラン', '単回', '月額', '年間'],
+      pcRows: [
+        { plan: '単回', place: '¥2,500', benefits: '―' },
+        { plan: '月額', place: '¥11,000', benefits: '1回あたり<br>¥2,200円' },
+        { plan: '年間', place: '¥20,000', benefits: '1回あたり<br>¥2,000円' },
+      ],
+      spRows: [
+        { plan: '料金', single: '¥2,500', month: '¥11,000', year: '¥20,000' },
+        { plan: '特典', single: '―', month: '1回あたり<br>¥2,200円', year: '1回あたり<br>¥2,000円' },
+      ]
+    }
+  },
+  {
+    name: 'フィットネスランコース',
+    table: {
+      pcHeaders: ['プラン', '料金', '特典'],
+      spHeaders: ['プラン', '月額', '10回券'],
+      pcRows: [
+        { plan: '月額', place: '¥8,980', benefits: '無制限クラス受講可<br>ファミリー割引あり' },
+        { plan: '10回券', place: '¥25,000', benefits: '1回あたり<br>¥2,200円' },
+      ],
+      spRows: [
+        { plan: '料金', month: '¥8,980', year: '¥25,000' },
+        { plan: '特典', month: '無制限クラス受講可<br>ファミリー・学生割引あり', year: '1回あたり<br>¥2,200円' },
+      ]
+    }
+  }
+]);
+
+
+%>
+
+<%# 配列データを定数に代入 %>
+<% const meta = getMetaData(); %>
+<% const nav = getNavigationData(); %>
+<% const course = getCourseData(); %>
+
+
+<%# セクションの読み込み %>
+<%- include('layout/header',{meta:meta, nav:nav}) %>
+<%- include('section/hero') %>
+
+<main class="l-main">
+  <%- include('section/course') %>
+  <%- include('section/trainer') %>
+  <%- include('section/price',{course:course}) %>
+  <%- include('section/review') %>
+  <%- include('section/question') %>
+  <%- include('section/contact') %>
+</main>
+<%- include('layout/footer',{nav:nav}) %>

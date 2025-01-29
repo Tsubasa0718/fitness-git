@@ -1,0 +1,132 @@
+@use"../../foundation/_mixin.scss" as *;
+
+// tab
+
+.c-tab-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: px-clamp(40,81,375,1360);
+}
+
+.c-tab-btn{
+ display: inline-block;
+ width: px-to-rem(325px);
+ padding: px-to-rem(20px) 0;
+ text-align: center;
+ font-size: px-to-rem(18px);
+ font-weight: bold;
+ box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.25);
+ transition: transform .3s;
+ &:not(:first-child){
+  margin-left: 1rem;
+ }
+ &:hover{
+  transform: translateY(4px);
+  box-shadow: none;
+ }
+ &:nth-child(2){
+  background-color: var(--main-color);
+  color: var(--base-color);
+ }
+ &:nth-child(3){
+  background-color: var(--accent-color);
+  color:  var(--base-color);
+ }
+}
+
+.c-tab-btn--sp{
+ position: relative;
+ display: inline-block;
+ width: px-to-rem(100px);
+ height: px-to-rem(50px);
+ padding: px-to-rem(10px) 0;
+ background-color: var(--base-color);
+ box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.25);
+ transition: transform .3s;
+
+ &:hover{
+  transform: translateY(4px);
+  box-shadow: none;
+ }
+
+ img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+ }
+ &:not(:first-child){
+  margin-left: 1rem;
+ }
+ &:nth-child(2){
+  background-color: var(--main-color);
+ }
+ &:nth-child(3){
+  background-color: var(--accent-color);
+ }
+
+}
+
+// form
+
+.c-btn--submit{
+  display: inline-block;
+  text-align: center;
+  font-size: px-to-rem(20px);
+  padding: px-to-rem(30px) 0;
+  width: px-to-rem(280px);
+  border-radius: px-to-rem(50px);
+  background-color: var(--accent-color);
+  color: var(--base-color);
+  cursor: pointer;
+  transition: .3s;
+  &:hover{
+    background-color: var(--base-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+  }
+}
+
+// hamburger-menu
+
+.c-menu-btn{
+  position: fixed;
+  top: 3%;
+  left: px-to-rem(40px);
+  z-index: 10;
+  width: px-to-rem(30px);
+  height: px-to-rem(30px);
+span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: px-to-rem(24px);
+    height: px-to-rem(1px);
+    background-color: #000;
+    transition: .3s;
+    &:nth-child(1){
+      top: calc(50% - 8px); /* 8px上に移動 */
+    }
+
+    &:nth-child(3){
+      top: calc(50% + 8px); /* 8px上に移動 */
+    }
+  }
+  &.active{
+    span{
+      &:nth-child(1){
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &:nth-child(2){
+        opacity: 0;
+      }
+      &:nth-child(3){
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}

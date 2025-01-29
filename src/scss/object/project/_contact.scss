@@ -1,0 +1,122 @@
+@use"../../foundation/_mixin.scss" as *;
+
+
+.p-contact {
+  &__form-body {
+    max-width: px-to-rem(1012px);
+    margin: 0 auto;
+    width: 100%;
+  }
+  &__form {
+    margin-top: px-clamp(64, 72, 375, 1360);
+    border: 1px solid #000;
+  }
+  &__form-item {
+     display: flex;
+     align-items: center;
+     border-bottom: 1px solid #000;
+     @include responsive("phone"){
+      flex-direction: column;
+     }
+  }
+  &__form-body-label{
+    display: inline-block;
+    padding: px-clamp(16,24,375,1360) 0 px-clamp(16,24,375,1360) px-clamp(16,20,375,1360);
+    width: px-to-rem(300px);
+    background-color: rgba(255, 165, 32, 0.29);
+    @include responsive("phone"){
+      width: 100%;
+    }
+  }
+  &__form-label-wrapper{
+    padding-left: px-clamp(16,20,375,1360);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    @include responsive("phone"){
+      margin: px-to-rem(16px) 0;
+    }
+  }
+  &__form-textarea-label{
+    width: px-to-rem(300px);
+    padding: px-clamp(16,24,375,1360) 0 px-clamp(16,90,375,1360)  px-clamp(16,20,375,1360);
+    background-color: rgba(255, 165, 32, 0.29);
+    @include responsive("phone"){
+      width: 100%;
+    }
+  }
+  &__form-required{
+    display: inline-block;
+    text-align: center;
+    background-color: var(--accent-color);
+    padding: px-to-rem(4px);
+    color: var(--base-color);
+    font-size: px-to-rem(12px);
+    margin-left: 1.5rem;
+  }
+  &__form-input{
+    margin-left: px-to-rem(20px);
+    width: px-to-rem(314px);
+    border: 1px solid #000;
+    border-radius: px-to-rem(5px);
+    @include responsive("phone"){
+      margin: px-to-rem(16px) auto;
+      width: 80%;
+    }
+  }
+  &__form-input-wrapper{
+    margin-left: px-to-rem(20px);
+    label{
+      margin-left: 1rem;
+    }
+    @include responsive("phone"){
+      margin-left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__form-input--postal{
+    width: px-to-rem(157px);
+    border: 1px solid #000;
+    margin:  1rem 0;
+    border-radius: px-to-rem(5px);
+    @include responsive("phone"){
+      width: 30%;
+     }
+     &:nth-child(1){
+      margin: 0 1rem;
+     }
+     &:nth-child(2){
+      margin-left: 1rem;
+     }
+  }
+  &__form-select{
+    width: px-to-rem(181px);
+    border: 1px solid #000;
+    border-radius: px-to-rem(5px);
+    margin-left: px-to-rem(20px);
+    @include responsive("phone"){
+      margin: px-to-rem(16px) auto;
+      width: 80%;
+    }
+  }
+
+  &__form-textarea{
+    width: px-to-rem(314px);
+    height: px-to-rem(87px);
+    border: 1px solid #000;
+    border-radius: px-to-rem(5px);
+    margin-left: px-to-rem(20px);
+    @include responsive("phone"){
+      margin: px-to-rem(16px) auto;
+      width: 80%;
+    }
+  }
+  &__form-btn{
+    text-align: center;
+    margin-top: px-clamp(32,54,375,1360);
+  }
+}

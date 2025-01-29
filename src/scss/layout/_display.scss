@@ -1,0 +1,14 @@
+@use "../foundation/_responsive.scss" as *;
+
+.l-pc-only{
+    display: block;
+    @include responsive("phone"){
+        display: none;
+    }
+}
+.l-sp-only{
+    display: none;
+    @include responsive("phone"){
+        display: block;
+    }
+}

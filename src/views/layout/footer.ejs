@@ -1,0 +1,34 @@
+<footer class="l-footer">
+    <div class="l-container">
+        <div class="l-footer__wrapper">
+            <div class="l-footer__logo">
+                <a href="#">
+                    <img width="318" height="31" src="../img/footer-logo.png" alt="健康&フィットネスクラブのWEBサイトのフッター部分のロゴ">
+                </a>
+            </div>
+            <div class="l-footer__info">電話番号:000‐000‐000</div>
+        </div>
+        <div class="l-footer__nav">
+            <ul class="l-footer__nav-list">
+                <% nav.forEach(item =>{ %>
+                  <li class="l-footer__nav-item">
+                    <a class="l-footer__nav-link" href=""><%= item.title %></a>
+                  </li>
+               <% }) %>
+            </ul>
+            <div class="l-footer__copy">
+                <small>©健康＆フィットネスクラブ</small>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="c-modal">
+    <div class="c-modal__content">
+     <figure class=".c-modal__image">
+        <img  src="/src/img/modal-banner.png" alt="フィットネスクラブの広告バナー">
+        <button class="c-modal__close-icon" type="button"><img  src="/src/img/close-icon.png" alt="広告を閉じるアイコン"></button>
+     </figure>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+@use"../../foundation/_mixin.scss" as *;
+
+.p-hero{
+   background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: px-clamp(200,600,375,1360);
+    animation: image_anime 8s infinite ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+// animation
+@keyframes image_anime {
+    0% {
+      background-image: url('../img/hero-banner1.png');
+    }
+    33.33% {
+      background-image: url('../img/hero-banner2.png');
+    }
+    66.66% {
+      background-image: url('../img/hero-banner3.png');
+    }
+    100% {
+      background-image: url('../img/hero-banner1.png');
+    }
+  }
